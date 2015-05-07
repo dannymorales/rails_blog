@@ -1,0 +1,27 @@
+<%= form_for @post do |f| %>
+	
+	<% if @post.errors.any? %>
+		<div id="error">
+			<p>You have <%= pluralize(@post.errors.count, "error") %> . Please check the list below and correct them.</p>
+		</div>
+		<ul>
+			<% @post.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		</ul>
+		<% end %>
+	<% end %>
+		
+	<table summary="posts">
+		<tr>
+			<th><%= f.label :title, "Title" %></th>
+			<td> <%= f.text_field :title %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :body, "Body" %></th>
+			<td><%= f.text_area :body %></td>
+		</tr>
+	</table>	
+
+		<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+		
+<% end %> 
