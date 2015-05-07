@@ -20,6 +20,7 @@
 
 	<% if !user_signed_in? %>
 		<p class="sign_in"><%= link_to 'login', user_session_path %></p>
+		<p class="signup"><%= link_to 'signup', new_user_registration_path %></p>
 	<% end %>
 </div>
 
