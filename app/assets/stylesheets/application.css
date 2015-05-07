@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+#sidebar p {
+	padding-left: 20cm;
+	font-color:black;
+}
+
+#sidebar li {
+   padding-right: 20cm;
+   font-style: normal;
+   font-size: 18px;
+   vertical-align:50%;
+
+
+}
+
+#sidebar {
+    top: 0;
+	left: 0;
+	width: 100%;
+	padding: .15em 1em;
+	background-color: white;
+	border-bottom: 2px solid #192B47;
+	background-color: #47556C;
+
+}
+
+
+#main_content {
+	padding-left: 10cm;
+}
