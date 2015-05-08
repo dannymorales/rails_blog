@@ -14,15 +14,15 @@
 	<table summary="posts">
 		<tr>
 			<th><%= f.label :title, "Title" %></th>
-			<td> <%= f.text_field :title %></td>
+			<td> <%= f.text_field :title, class: "text_field" %></td>
 		</tr>
 		<tr>
-			<th><%= f.label :body, "Body" %></th>
-			<td><%= f.text_area :body %></td>
+			<th><%= f.label :body, "Post" %></th>
+			<td><%= f.text_area :body, class: "text_area" %></td>
 		</tr>
 	</table>	
 
-		<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+		<%= f.submit "Submit", class: "submit", :disable_with => 'Submiting...' %>
 
 		
 <% end %> 
