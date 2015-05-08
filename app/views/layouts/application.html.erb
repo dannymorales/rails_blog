@@ -11,6 +11,20 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+
+<div id="header">
+		
+		<% if user_signed_in? %>
+			<%= link_to "New Post", new_post_path %>
+			<%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure you want to sign out?'} %>
+			<% else %>
+				<%= link_to 'login', user_session_path %>
+				<%= link_to 'signup', new_user_registration_path %>
+		<% end %>
+			
+	</div>
+
+
 <div id="sidebar">
 	<ul>
 		<li class="category">Website</li>
@@ -18,13 +32,16 @@
 		<li>About</li>
 	</ul>
 
+
 	<% if !user_signed_in? %>
 		<p class="sign_in"><%= link_to 'login', user_session_path %></p>
 		<p class="signup"><%= link_to 'signup', new_user_registration_path %></p>
 	<% end %>
+
 </div>
 
 <div id="main_content">
+
 	
 	<div id="header">
 		
@@ -35,7 +52,6 @@
 		<% end %>
 			
 	</div>
-
 	<% flash.each do |name, msg| %>
 		<%= content_tag(:div, msg, class: 'alert') %>
 	<% end %>
@@ -44,6 +60,7 @@
 
 
 
+<footer>This is the footer</footer>
 
 </body>
 </html>
