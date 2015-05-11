@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
-		# @post.user
+		@post.user
 	end	
 	def update
 		@post = Post.find(params[:id])
