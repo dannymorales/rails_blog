@@ -6,29 +6,32 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = current_user.posts.new
-		if @post.save
-			redirect_to @post
-		else
-			render :new
-		end
+		@post = current_user.posts.build
 	end
 
 	def create
 		
-		@post = Post.new(post_params)
-		# @post.user_id = current_user.id
-		@post.save
-		redirect_to @post
+		@post = current_user.posts.build(post_params)
+		respond_to do |format|
+			if @post.save
+				format.html {redirect_to @post, notice: 'post was created'}
+				format.json {render :show, status: :created, location: @post}
+			else
+				format.html {render :new}
+				format.json {render json: @post.errors, status: :unprocessable_entity}
+			end
+		end
 	end
 
 	def show
-		@post = Post.find(params[:id])	
+		@post = Post.find(params[:id])
+		@post.user
 	end
 
 	def edit
 		@post = Post.find(params[:id])
-	end
+		# @post.user
+	end	
 	def update
 		@post = Post.find(params[:id])
 		if @post.update(params[:post].permit(:title, :body))
@@ -47,7 +50,6 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-
 		params.require(:post).permit(:title, :body)
 	end
 end

@@ -11,6 +11,7 @@
 
 <div id="header">	
 	<% if user_signed_in? %>
+		<p> Hello <%= current_user.name %></p>
 		<%= link_to "New Post", new_post_path %>
 		<%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure you want to sign out?'} %>
 		<% else %>

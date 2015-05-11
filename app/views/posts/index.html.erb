@@ -6,7 +6,7 @@
 			<%= link_to post.title, post %>
 		</h2>
 		<p class="date">
-			<p>Post created on	<%= post.created_at.strftime('%B, %d, %Y') %></p>
+			<p>Post created on	<%= post.created_at.strftime('%B, %d, %Y') %> by <%= post.user.name %> </p>
 			</p>
 	</div>
 	
