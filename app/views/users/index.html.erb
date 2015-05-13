@@ -1,0 +1,16 @@
+<h2>All users hello</h2>
+
+<% @users.each do |user| %>
+	<table>
+		<tr>
+			<th>id</th>
+			<td><%= link_to user.id, edit_user_registration_path(user) %></td>
+			<th>Name</th>
+			<td><%= user.name %></td><br>
+			<th>email</th>
+			<td><%= user.email %></td>		
+		</tr>
+			
+		
+	</table>
+<% end %>
