@@ -10,7 +10,4 @@ class User < ActiveRecord::Base
          validates :password, confirmation: true
          has_many :posts
          has_many :comments
-
-         
-
 end
